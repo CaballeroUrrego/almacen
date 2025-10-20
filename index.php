@@ -1,50 +1,51 @@
-<?php
-require_once 'config.php';
+<!DOCTYPE html>
+<html lang="es">
 
-// Definir columnas válidas
-$columns = [
-    "no_empleado",
-    "fecha_nacimiento",
-    "nombre",
-    "apellido",
-    "fecha_ingreso"
-];
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almacen</title>
 
-$table = "empleados";
+    <link rel="stylesheet" href="css/styles.css">
+</head>
 
-// Validar el campo de búsqueda
-$campo = isset($_POST['campo']) ? $conn->real_escape_string($_POST['campo']) : null;
+<body>
 
-// Construir la consulta base
-$sql = "SELECT " . implode(", ", $columns) . " FROM $table";
 
-// Si hay búsqueda, agregar condición
-if ($campo != null && $campo != '') {
-    $sql .= " WHERE nombre LIKE '%$campo%' OR apellido LIKE '%$campo%' OR no_empleado LIKE '%$campo%'";
-}
 
-// Ejecutar consulta
-$resultado = $conn->query($sql);
+    <h2>Empleados</h2>
 
-$html = "";
+    <form action="" method="post">
+        <label for="campo">Buscar:</label>
+        <input type="text" name="campo" id="campo">
 
-// Verificar si hay resultados
-if ($resultado && $resultado->num_rows > 0) {
-    while ($row = $resultado->fetch_assoc()) {
-        $html .= "<tr>";
-        $html .= "<td>" . $row['no_empleado'] . "</td>";
-        $html .= "<td>" . $row['nombre'] . "</td>";
-        $html .= "<td>" . $row['apellido'] . "</td>";
-        $html .= "<td>" . $row['fecha_nacimiento'] . "</td>";
-        $html .= "<td>" . $row['fecha_ingreso'] . "</td>";
-        $html .= "<td><a href='#'>Editar</a></td>";
-        $html .= "<td><a href='#'>Eliminar</a></td>";
-        $html .= "</tr>";
-    }
-} else {
-    $html .= "<tr><td colspan='7'>No hay registros</td></tr>";
-}
 
-// Imprimir resultados
-echo json_encode($html, JSON_UNESCAPED_UNICODE);
-?>
+
+    </form>
+
+    <p>
+    </p>
+
+
+    <table>
+        <thead>
+            <th>Num.empleado</th>
+
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Fecha nacimiento</th>
+            <th>Fecha ingreso</th>
+            <th></th>
+            <th></th>
+
+
+
+        </thead>
+        <tbody id="content">
+
+        </tbody>
+    </table>
+
+</body>
+
+</html>
