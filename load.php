@@ -10,7 +10,7 @@ $column = [
 ];
 
 $table = "empleados";
-$campo = isset($_POST['campo']) ? $conn->real_escape_string($_POST['campo']) : null;
+$campo = isset($_POST['campo']) ? ($_POST['campo']) : null;
 
 $sql = "SELECT " . implode(", ", $column) . " FROM $table";
 $resultado = $conn->query($sql);
