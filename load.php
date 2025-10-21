@@ -1,7 +1,5 @@
 <?php
-// ¡IMPORTANTE! Este encabezado debe eliminarse si el JavaScript usa response.text(). 
-// Si tu JS usa .text(), borra la siguiente línea y el json_encode al final.
-// header('Content-Type: application/json');
+
 
 require_once 'config.php'; // Asume que $conn es una instancia de mysqli
 
