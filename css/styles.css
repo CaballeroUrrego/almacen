@@ -1,10 +1,114 @@
-table,
+/* ================================
+   MODO OSCURO TIPO NOTION
+   ================================ */
+
+body {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  margin: 40px;
+  line-height: 1.6;
+}
+
+/* Encabezado principal */
+h2 {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+}
+
+/* Contenedor del buscador */
+.search-container {
+  margin-bottom: 25px;
+}
+
+label {
+  color: #b3b3b3;
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+/* Input de búsqueda */
+input[type="text"] {
+  background-color: #2b2b2b;
+  color: #f0f0f0;
+  border: 1px solid #3a3a3a;
+  padding: 10px 12px;
+  border-radius: 8px;
+  width: 260px;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #6366f1;
+  background-color: #252525;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3);
+}
+
+/* Tabla */
+.table-container {
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #2a2a2a;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #202020;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
 th,
 td {
-  border: 1px solid #ddd;
-  padding: 8px;
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid #333;
 }
-table {
-  border-collapse: collapse;
-  width: 100%;
+
+tbody tr:hover {
+  background-color: #333333;
+  transition: background-color 0.3s ease;
+}
+
+/* Enlaces de acción */
+a {
+  color: #8ab4f8;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #a5b4fc;
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+@media (max-width: 768px) {
+  body {
+    margin: 20px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    margin-top: 10px;
+  }
 }
